@@ -209,7 +209,7 @@
     }, []);
 
     return (
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ opacity: 0.40 }}>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ opacity: 0.70 }}>
         <div
           className="absolute inset-0"
           style={{
