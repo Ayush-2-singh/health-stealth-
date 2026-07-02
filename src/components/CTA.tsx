@@ -11,22 +11,25 @@
 
   export default function CTA({ title, description, primaryCTA, secondaryCTA }: CTAProps) {
     return (
-      <section className="relative py-24 px-6 lg:px-8">
+      <section className="py-32 px-6 lg:px-10">
         <div className="max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative bg-gradient-to-br from-surface via-white to-secondary/5 border border-border rounded-3xl p-12 md:p-16 overflow-hidden shadow-navy"
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="relative bg-surface border border-border rounded-[var(--radius-card-lg)] p-12 md:p-16 overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-            <div className="absolute inset-0 grid-bg opacity-40" />
-            <div className="relative text-center max-w-3xl mx-auto">
-              <h2 className="text-display-md font-bold tracking-tight mb-6 text-heading">{title}</h2>
-              <p className="text-lg text-gray-600 mb-10 leading-relaxed">{description}</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* Subtle grid background */}
+            <div className="absolute inset-0 grid-bg opacity-60 rounded-[var(--radius-card-lg)]" />
+            {/* Top accent line */}
+            <div className="absolute top-0 left-16 right-16 h-px bg-gradient-to-r from-transparent via-secondary/25 to-transparent" />
+
+            <div className="relative text-center max-w-2xl mx-auto">
+              <p className="text-xs font-semibold text-secondary tracking-[0.22em] uppercase mb-5">Partner With Us</p>
+              <h2 className="text-display-md font-bold tracking-tight text-heading mb-4">{title}</h2>
+              <p className="text-base text-gray-500 mb-10 leading-relaxed">{description}</p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 {primaryCTA && <Button href={primaryCTA.href} variant="primary" size="lg">{primaryCTA.label}</Button>}
                 {secondaryCTA && <Button href={secondaryCTA.href} variant="ghost" size="lg">{secondaryCTA.label}</Button>}
               </div>
