@@ -22,21 +22,21 @@ export default function Technology() {
         <div className="max-w-7xl mx-auto">
           <SectionTitle eyebrow="Technical Excellence" title="Engineering at the Frontier" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="bg-card border border-border rounded-2xl p-8">
-              <div className="flex items-center gap-3 mb-5"><HiLightningBolt className="w-6 h-6 text-primary" /><h3 className="text-2xl font-bold text-white">Metamaterial Innovation</h3></div>
-              <p className="text-gray-400 leading-relaxed mb-6">Our proprietary metamaterial structures manipulate electromagnetic waves at the sub-wavelength scale, achieving absorption and scattering characteristics impossible with conventional materials.</p>
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="bg-white border border-border rounded-2xl p-8">
+              <div className="flex items-center gap-3 mb-5"><HiLightningBolt className="w-6 h-6 text-primary" /><h3 className="text-2xl font-bold text-heading">Metamaterial Innovation</h3></div>
+              <p className="text-gray-600 leading-relaxed mb-6">Our proprietary metamaterial structures manipulate electromagnetic waves at the sub-wavelength scale, achieving absorption and scattering characteristics impossible with conventional materials.</p>
               <div className="space-y-3">
                 {["Sub-wavelength resonance", "Tunable absorption bands", "Wide-angle performance", "Lightweight construction"].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 text-sm text-gray-300"><span className="w-1.5 h-1.5 bg-primary rounded-full" />{item}</div>
+                  <div key={i} className="flex items-center gap-3 text-sm text-gray-700"><span className="w-1.5 h-1.5 bg-primary rounded-full" />{item}</div>
                 ))}
               </div>
             </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }} className="bg-card border border-border rounded-2xl p-8">
-              <div className="flex items-center gap-3 mb-5"><HiLightningBolt className="w-6 h-6 text-secondary" /><h3 className="text-2xl font-bold text-white">Adaptive Systems</h3></div>
-              <p className="text-gray-400 leading-relaxed mb-6">AI-driven adaptive camouflage systems that respond in real-time to changing environments, threat vectors, and operational requirements.</p>
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }} className="bg-white border border-border rounded-2xl p-8">
+              <div className="flex items-center gap-3 mb-5"><HiLightningBolt className="w-6 h-6 text-secondary" /><h3 className="text-2xl font-bold text-heading">Adaptive Systems</h3></div>
+              <p className="text-gray-600 leading-relaxed mb-6">AI-driven adaptive camouflage systems that respond in real-time to changing environments, threat vectors, and operational requirements.</p>
               <div className="space-y-3">
                 {["Real-time environmental sensing", "Dynamic signature adjustment", "Multi-threat response", "Autonomous operation"].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 text-sm text-gray-300"><span className="w-1.5 h-1.5 bg-secondary rounded-full" />{item}</div>
+                  <div key={i} className="flex items-center gap-3 text-sm text-gray-700"><span className="w-1.5 h-1.5 bg-secondary rounded-full" />{item}</div>
                 ))}
               </div>
             </motion.div>
@@ -53,9 +53,9 @@ export default function Technology() {
               { value: "0.01m²", label: "Residual RCS" },
               { value: "< 3dB", label: "Detection Threshold" },
             ].map((metric, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-card border border-border rounded-2xl p-6 text-center">
+              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-white border border-border rounded-2xl p-6 text-center">
                 <div className="text-3xl md:text-4xl font-bold gradient-text-blue mb-2">{metric.value}</div>
-                <div className="text-xs text-gray-400 uppercase tracking-wider">{metric.label}</div>
+                <div className="text-xs text-gray-600 uppercase tracking-wider">{metric.label}</div>
               </motion.div>
             ))}
           </div>
