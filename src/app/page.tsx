@@ -1,17 +1,27 @@
 "use client";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
 import ProductCard from "@/components/ProductCard";
 import TechnologyCard from "@/components/TechnologyCard";
 import CTA from "@/components/CTA";
 import GlassCard from "@/components/GlassCard";
-import WorldMap from "@/components/WorldMap";
 import Timeline from "@/components/Timeline";
 import BlueprintGrid from "@/components/BlueprintGrid";
 import { stats, technologies, products, applications, researchAreas } from "@/lib/data";
 import { HiShieldCheck, HiLightningBolt, HiCube, HiGlobe, HiAcademicCap, HiCog } from "react-icons/hi";
 import Link from "next/link";
+
+// WorldMap is lazy-loaded: it is a heavy SVG with many animated elements
+// and sits well below the fold. ssr:false avoids hydration mismatch on
+// SVG <animate> elements which browsers handle differently server-side.
+const WorldMap = dynamic(() => import("@/components/WorldMap"), {
+  loading: () => (
+    <div className="w-full h-72 bg-surface border border-border rounded-[var(--radius-card)] animate-pulse" />
+  ),
+  ssr: false,
+});
 
 function StatCard({ value, suffix, label, index }: { value: string; suffix?: string; label: string; index: number }) {
   return (
@@ -58,18 +68,12 @@ export default function Home() {
         secondaryCTA={{ label: "Contact Us", href: "/contact" }}
       />
 
-      {/* ── About / Stats ── */}
+      {/* About / Stats */}
       <section className="relative py-32 px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
-          <SectionTitle
-            eyebrow="About Us"
-            title="Redefining Stealth for the Modern Battlefield"
-            description="For over 15 years, Hyper Stealth Technologies has pioneered multi-spectral signature management solutions that keep defense platforms invisible to modern detection systems."
-          />
+          <SectionTitle eyebrow="About Us" title="Redefining Stealth for the Modern Battlefield" description="For over 15 years, Hyper Stealth Technologies has pioneered multi-spectral signature management solutions that keep defense platforms invisible to modern detection systems." />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
-            {stats.map((stat, i) => (
-              <StatCard key={i} value={stat.value} suffix={stat.suffix} label={stat.label} index={i} />
-            ))}
+            {stats.map((stat, i) => <StatCard key={i} value={stat.value} suffix={stat.suffix} label={stat.label} index={i} />)}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
@@ -81,77 +85,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Company History Timeline ── */}
+      {/* Company History Timeline */}
       <section className="relative py-32 px-6 lg:px-10 bg-surface overflow-hidden">
         <BlueprintGrid />
         <div className="relative max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <SectionTitle
-              eyebrow="Company History"
-              title="Two Decades of Invisible Engineering"
-              description="From a small research team to a globally trusted defense technology partner — a relentless pursuit of operational invisibility."
-              align="left"
-            />
+            <SectionTitle eyebrow="Company History" title="Two Decades of Invisible Engineering" description="From a small research team to a globally trusted defense technology partner." align="left" />
             <Timeline />
           </div>
         </div>
       </section>
 
-      {/* ── Core Technology ── */}
+      {/* Core Technology */}
       <section className="relative py-32 px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
-          <SectionTitle
-            eyebrow="Core Technology"
-            title="Multi-Spectral Signature Management"
-            description="Our proprietary technologies operate across the entire electromagnetic spectrum, providing unmatched protection against modern detection systems."
-          />
+          <SectionTitle eyebrow="Core Technology" title="Multi-Spectral Signature Management" description="Our proprietary technologies operate across the entire electromagnetic spectrum, providing unmatched protection against modern detection systems." />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {technologies.slice(0, 4).map((tech, i) => <TechnologyCard key={tech.id} tech={tech} index={i} />)}
           </div>
           <div className="mt-10 text-center">
-            <Link href="/technology" className="inline-flex items-center gap-1.5 text-sm font-medium text-secondary hover:text-secondary-dark transition-colors duration-150">
-              View All Technologies
-            </Link>
+            <Link href="/technology" className="inline-flex items-center gap-1.5 text-sm font-medium text-secondary hover:text-secondary-dark transition-colors duration-150">View All Technologies</Link>
           </div>
         </div>
       </section>
 
-      {/* ── Products ── */}
+      {/* Products */}
       <section className="relative py-32 px-6 lg:px-10 bg-surface overflow-hidden">
         <BlueprintGrid />
         <div className="relative max-w-7xl mx-auto">
-          <SectionTitle
-            eyebrow="Our Products"
-            title="Battle-Tested Solutions"
-            description="Comprehensive portfolio of signature management systems designed for the most demanding defense applications."
-          />
+          <SectionTitle eyebrow="Our Products" title="Battle-Tested Solutions" description="Comprehensive portfolio of signature management systems designed for the most demanding defense applications." />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {products.slice(0, 3).map((product, i) => <ProductCard key={product.id} product={product} index={i} />)}
           </div>
           <div className="mt-10 text-center">
-            <Link href="/products" className="inline-flex items-center gap-1.5 text-sm font-medium text-secondary hover:text-secondary-dark transition-colors duration-150">
-              Explore Full Catalog
-            </Link>
+            <Link href="/products" className="inline-flex items-center gap-1.5 text-sm font-medium text-secondary hover:text-secondary-dark transition-colors duration-150">Explore Full Catalog</Link>
           </div>
         </div>
       </section>
 
-      {/* ── Applications ── */}
+      {/* Applications */}
       <section className="relative py-32 px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
-          <SectionTitle
-            eyebrow="Applications"
-            title="Across All Domains"
-            description="Our solutions protect platforms and personnel across land, sea, air, and critical infrastructure."
-          />
+          <SectionTitle eyebrow="Applications" title="Across All Domains" description="Our solutions protect platforms and personnel across land, sea, air, and critical infrastructure." />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {applications.map((app, i) => (
-              <motion.div
-                key={app.id}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.07 }}
+              <motion.div key={app.id} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.07 }}
                 className="group bg-white border border-border rounded-[var(--radius-card)] p-5 hover:border-gray-300 hover:shadow-soft transition-all duration-200"
               >
                 <div className="w-10 h-10 bg-primary/5 border border-primary/10 rounded-xl flex items-center justify-center mb-4">
@@ -165,15 +143,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Research ── */}
+      {/* Research */}
       <section className="relative py-32 px-6 lg:px-10 bg-surface overflow-hidden">
         <BlueprintGrid />
         <div className="relative max-w-7xl mx-auto">
-          <SectionTitle
-            eyebrow="Research & Innovation"
-            title="Pushing the Boundaries"
-            description="Our research labs drive continuous innovation in materials science, electromagnetic engineering, and thermal management."
-          />
+          <SectionTitle eyebrow="Research & Innovation" title="Pushing the Boundaries" description="Our research labs drive continuous innovation in materials science, electromagnetic engineering, and thermal management." />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {researchAreas.slice(0, 3).map((area, i) => (
               <GlassCard key={area.id} delay={i * 0.08}>
@@ -192,27 +166,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Global Operations (World Map) ── */}
+      {/* Global Operations — lazy-loaded WorldMap */}
       <section className="relative py-32 px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
-          <SectionTitle
-            eyebrow="Global Operations"
-            title="Worldwide Mission Coverage"
-            description="Active deployments across six continents, protecting allied platforms in every operational theater."
-          />
+          <SectionTitle eyebrow="Global Operations" title="Worldwide Mission Coverage" description="Active deployments across six continents, protecting allied platforms in every operational theater." />
           <WorldMap />
         </div>
       </section>
 
-      {/* ── Manufacturing ── */}
+      {/* Manufacturing */}
       <section className="relative py-32 px-6 lg:px-10 bg-surface overflow-hidden">
         <BlueprintGrid />
         <div className="relative max-w-7xl mx-auto">
-          <SectionTitle
-            eyebrow="Manufacturing"
-            title="Precision at Scale"
-            description="State-of-the-art facilities delivering defense-grade quality with unmatched consistency."
-          />
+          <SectionTitle eyebrow="Manufacturing" title="Precision at Scale" description="State-of-the-art facilities delivering defense-grade quality with unmatched consistency." />
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             {[
               { icon: HiAcademicCap, label: "Research" },
@@ -222,12 +188,7 @@ export default function Home() {
               { icon: HiShieldCheck, label: "Quality" },
               { icon: HiGlobe, label: "Deployment" },
             ].map((step, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.07 }}
+              <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.07 }}
                 className="bg-white border border-border rounded-[var(--radius-card)] p-5 text-center hover:border-gray-300 transition-all duration-200"
               >
                 <step.icon className="w-6 h-6 text-primary mx-auto mb-3" />
