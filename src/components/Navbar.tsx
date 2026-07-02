@@ -62,7 +62,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative px-4 py-2 text-sm text-gray-600 hover:text-heading font-medium transition-colors duration-150"
+                className="relative px-4 py-2 text-sm text-gray-700 hover:text-heading font-medium transition-colors duration-150"
               >
                 {item.label}
               </Link>
@@ -72,7 +72,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="hidden md:inline-flex items-center px-5 py-2 bg-primary hover:bg-primary-light text-white text-sm font-medium rounded-xl transition-colors duration-150"
+              className="hidden md:inline-flex items-center px-5 py-2 bg-primary hover:bg-primary-light text-white text-sm font-semibold rounded-xl transition-colors duration-150 shadow-soft hover:shadow-navy"
             >
               Get in Touch
             </Link>
@@ -126,7 +126,7 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full px-5 py-3 bg-primary hover:bg-primary-light text-white text-center text-sm font-medium rounded-xl transition-colors duration-150"
+                  className="block w-full px-5 py-3 bg-primary hover:bg-primary-light text-white text-center text-sm font-semibold rounded-xl transition-colors duration-150 shadow-soft hover:shadow-navy"
                 >
                   Get in Touch
                 </Link>
