@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
 import Timeline from "@/components/Timeline";
 import GlassCard from "@/components/GlassCard";
-import { timeline } from "@/lib/data";
+
 import { motion } from "framer-motion";
 import { HiShieldCheck, HiEye, HiLightningBolt, HiUserGroup, HiAcademicCap, HiGlobe } from "react-icons/hi";
 
@@ -60,7 +60,7 @@ export default function About() {
       <section className="relative py-24 px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <SectionTitle eyebrow="Our Journey" title="15 Years of Innovation" description="From founding to global leader in signature management technology." />
-          <Timeline items={timeline} />
+          <Timeline />
         </div>
       </section>
       <section className="relative py-24 px-6 lg:px-8">
