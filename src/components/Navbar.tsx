@@ -39,7 +39,7 @@ export default function Navbar() {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className={clsx(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled ? "glass-strong py-3" : "bg-transparent py-5"
+          scrolled ? "glass-strong py-3" : "bg-white/80 backdrop-blur-sm border-b border-gray-100 py-5"
         )}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
