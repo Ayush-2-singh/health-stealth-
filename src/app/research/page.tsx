@@ -22,12 +22,12 @@ export default function Research() {
                 <GlassCard key={area.id} delay={i * 0.1}>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 rounded-xl flex items-center justify-center"><Icon className="w-6 h-6 text-primary" /></div>
-                    <h3 className="text-xl font-bold text-white">{area.title}</h3>
+                    <h3 className="text-xl font-bold text-heading">{area.title}</h3>
                   </div>
-                  <p className="text-sm text-gray-400 leading-relaxed mb-5">{area.description}</p>
+                  <p className="text-sm text-gray-600 leading-relaxed mb-5">{area.description}</p>
                   <div className="space-y-2">
                     {area.focus.map((item) => (
-                      <div key={item} className="flex items-center gap-2 text-sm text-gray-300"><span className="w-1.5 h-1.5 bg-primary rounded-full" />{item}</div>
+                      <div key={item} className="flex items-center gap-2 text-sm text-gray-700"><span className="w-1.5 h-1.5 bg-primary rounded-full" />{item}</div>
                     ))}
                   </div>
                 </GlassCard>
@@ -46,9 +46,9 @@ export default function Research() {
               { value: "$45M", label: "Annual R&D Investment" },
               { value: "30+", label: "University Partners" },
             ].map((stat, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-card border border-border rounded-2xl p-6 text-center">
+              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-white border border-border rounded-2xl p-6 text-center">
                 <div className="text-3xl md:text-4xl font-bold gradient-text-blue mb-2">{stat.value}</div>
-                <div className="text-xs text-gray-400 uppercase tracking-wider">{stat.label}</div>
+                <div className="text-xs text-gray-600 uppercase tracking-wider">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -64,10 +64,10 @@ export default function Research() {
               { title: "AI-Driven Real-Time Signature Optimization", journal: "IEEE Transactions on Defense Systems", year: "2024" },
               { title: "Nanostructured Coatings for UV Signature Suppression", journal: "Defense Technology Review", year: "2024" },
             ].map((pub, i) => (
-              <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-card border border-border rounded-xl p-5 hover:border-primary/30 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-3">
+              <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} className="bg-white border border-border rounded-xl p-5 hover:border-primary/30 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-3">
                 <div>
-                  <h4 className="text-white font-medium mb-1">{pub.title}</h4>
-                  <div className="text-sm text-gray-400">{pub.journal}</div>
+                  <h4 className="text-heading font-medium mb-1">{pub.title}</h4>
+                  <div className="text-sm text-gray-600">{pub.journal}</div>
                 </div>
                 <div className="text-sm text-primary font-mono">{pub.year}</div>
               </motion.div>
