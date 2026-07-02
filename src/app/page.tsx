@@ -35,7 +35,7 @@ function StatCard({ value, suffix, label, index }: { value: string; suffix?: str
       <div className="text-3xl lg:text-4xl font-bold gradient-text-blue mb-1 tabular-nums">
         {value}{suffix && <span className="text-secondary">{suffix}</span>}
       </div>
-      <div className="text-xs text-gray-400 uppercase tracking-[0.15em] font-medium">{label}</div>
+      <div className="text-xs text-gray-600 uppercase tracking-[0.15em] font-semibold">{label}</div>
     </motion.div>
   );
 }
@@ -53,7 +53,7 @@ function FeatureCard({ icon: Icon, title, desc, index }: { icon: React.ElementTy
         <Icon className="w-5 h-5 text-primary" />
       </div>
       <h3 className="text-base font-semibold text-heading mb-2">{title}</h3>
-      <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+      <p className="text-sm text-gray-700 leading-relaxed font-normal">{desc}</p>
     </motion.div>
   );
 }
@@ -71,7 +71,7 @@ export default function Home() {
       {/* About / Stats */}
       <section className="relative py-32 px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
-          <SectionTitle eyebrow="About Us" title="Redefining Stealth for the Modern Battlefield" description="For over 15 years, Hyper Stealth Technologies has pioneered multi-spectral signature management solutions that keep defense platforms invisible to modern detection systems." />
+          <SectionTitle eyebrow="About Us" title="Redefining Stealth for the Modern Battlefield" description="For over 15 years, Hyper Stealth Technologies has pioneered multi-spectral signature management solutions across all defense domains." />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
             {stats.map((stat, i) => <StatCard key={i} value={stat.value} suffix={stat.suffix} label={stat.label} index={i} />)}
           </div>
@@ -99,12 +99,12 @@ export default function Home() {
       {/* Core Technology */}
       <section className="relative py-32 px-6 lg:px-10">
         <div className="max-w-7xl mx-auto">
-          <SectionTitle eyebrow="Core Technology" title="Multi-Spectral Signature Management" description="Our proprietary technologies operate across the entire electromagnetic spectrum, providing unmatched protection against modern detection systems." />
+          <SectionTitle eyebrow="Core Technology" title="Multi-Spectral Signature Management" description="Our proprietary technologies operate across the entire electromagnetic spectrum, providing unmatched detection avoidance." />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {technologies.slice(0, 4).map((tech, i) => <TechnologyCard key={tech.id} tech={tech} index={i} />)}
           </div>
           <div className="mt-10 text-center">
-            <Link href="/technology" className="inline-flex items-center gap-1.5 text-sm font-medium text-secondary hover:text-secondary-dark transition-colors duration-150">View All Technologies</Link>
+            <Link href="/technology" className="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary hover:text-secondary-dark transition-colors duration-150">View All Technologies →</Link>
           </div>
         </div>
       </section>
@@ -118,7 +118,7 @@ export default function Home() {
             {products.slice(0, 3).map((product, i) => <ProductCard key={product.id} product={product} index={i} />)}
           </div>
           <div className="mt-10 text-center">
-            <Link href="/products" className="inline-flex items-center gap-1.5 text-sm font-medium text-secondary hover:text-secondary-dark transition-colors duration-150">Explore Full Catalog</Link>
+            <Link href="/products" className="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary hover:text-secondary-dark transition-colors duration-150">Explore Full Catalog →</Link>
           </div>
         </div>
       </section>
@@ -136,7 +136,7 @@ export default function Home() {
                   <HiGlobe className="w-5 h-5 text-primary" />
                 </div>
                 <h3 className="text-sm font-semibold text-heading mb-1.5 group-hover:text-primary transition-colors duration-150">{app.title}</h3>
-                <p className="text-xs text-gray-500 leading-relaxed line-clamp-3">{app.description}</p>
+                <p className="text-xs text-gray-700 leading-relaxed line-clamp-3 font-normal">{app.description}</p>
               </motion.div>
             ))}
           </div>
@@ -147,7 +147,7 @@ export default function Home() {
       <section className="relative py-32 px-6 lg:px-10 bg-surface overflow-hidden">
         <BlueprintGrid />
         <div className="relative max-w-7xl mx-auto">
-          <SectionTitle eyebrow="Research & Innovation" title="Pushing the Boundaries" description="Our research labs drive continuous innovation in materials science, electromagnetic engineering, and thermal management." />
+          <SectionTitle eyebrow="Research & Innovation" title="Pushing the Boundaries" description="Our research labs drive continuous innovation in materials science, electromagnetic engineering, and detection systems." />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {researchAreas.slice(0, 3).map((area, i) => (
               <GlassCard key={area.id} delay={i * 0.08}>
@@ -157,7 +157,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-base font-semibold text-heading mb-1.5">{area.title}</h3>
-                    <p className="text-sm text-gray-500 leading-relaxed">{area.description}</p>
+                    <p className="text-sm text-gray-700 leading-relaxed font-normal">{area.description}</p>
                   </div>
                 </div>
               </GlassCard>
@@ -192,7 +192,7 @@ export default function Home() {
                 className="bg-white border border-border rounded-[var(--radius-card)] p-5 text-center hover:border-gray-300 transition-all duration-200"
               >
                 <step.icon className="w-6 h-6 text-primary mx-auto mb-3" />
-                <div className="text-xs font-medium text-gray-500 uppercase tracking-[0.12em]">{step.label}</div>
+                <div className="text-xs font-semibold text-gray-700 uppercase tracking-[0.12em]">{step.label}</div>
               </motion.div>
             ))}
           </div>
