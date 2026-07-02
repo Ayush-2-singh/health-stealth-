@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800&display=swap');
 
   @tailwind base;
   @tailwind components;
@@ -13,6 +13,8 @@
     --secondary: #2563EB;
     --text: #111827;
     --muted: #6B7280;
+    --radius-card: 12px;
+    --radius-card-lg: 16px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,39 +25,41 @@
     color: var(--text);
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
 
-  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: var(--surface); }
-  ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
 
-  ::selection { background: var(--secondary); color: white; }
+  ::selection { background: #2563EB; color: white; }
 
   .glass {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.80);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(229, 231, 235, 0.8);
   }
 
   .glass-strong {
-    background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(229, 231, 235, 0.6);
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #0A2342 0%, #2563EB 100%);
+    background: linear-gradient(135deg, #0A2342 20%, #2563EB 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .gradient-text-blue {
-    background: linear-gradient(135deg, #0A2342 0%, #2563EB 100%);
+    background: linear-gradient(135deg, #0A2342 20%, #2563EB 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -63,29 +67,18 @@
 
   .grid-bg {
     background-image:
-      linear-gradient(rgba(10, 35, 66, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(10, 35, 66, 0.04) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-
-  @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
-  }
-
-  .shimmer {
-    background: linear-gradient(90deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.02) 100%);
-    background-size: 200% 100%;
-    animation: shimmer 2s infinite;
+      linear-gradient(rgba(10, 35, 66, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10, 35, 66, 0.035) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
   *:focus-visible {
-    outline: 2px solid var(--secondary);
+    outline: 2px solid #2563EB;
     outline-offset: 2px;
-    border-radius: 4px;
+    border-radius: 6px;
   }
 
   @media (prefers-reduced-motion: reduce) {
