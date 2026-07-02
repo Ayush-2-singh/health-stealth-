@@ -1,44 +1,51 @@
 "use client";
 import { motion } from "framer-motion";
 
-interface TimelineItem { year: string; title: string; description: string; }
-interface TimelineProps { items: TimelineItem[]; horizontal?: boolean; }
+const MILESTONES = [
+  { year: "2008", tag: "FOUNDED",     title: "Established",
+    description: "Founded in response to growing multi-spectral detection threats, with a mandate to make allied platforms invisible to modern sensors." },
+  { year: "2011", tag: "CONTRACT",    title: "First NATO Contract",
+    description: "Landmark multi-national defense contract delivering advanced signature management to NATO forces across three continents." },
+  { year: "2015", tag: "BREAKTHROUGH",title: "Materials Science Advance",
+    description: "Proprietary nano-composite coating achieved invisibility across 14 electromagnetic bands simultaneously — an industry first." },
+  { year: "2018", tag: "EXPANSION",   title: "Global Operations",
+    description: "Manufacturing certified in 22 countries with ISO-9001 defense-grade quality assurance at each facility." },
+  { year: "2023", tag: "CURRENT",     title: "Gen-7 Platform",
+    description: "Next-generation adaptive signature management with real-time AI threat classification and autonomous countermeasure deployment." },
+];
 
-export default function Timeline({ items, horizontal = false }: TimelineProps) {
-  if (horizontal) {
-    return (
-      <div className="relative overflow-x-auto no-scrollbar">
-        <div className="flex gap-6 min-w-max px-4 pb-4">
-          {items.map((item, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }} className="relative w-80 flex-shrink-0">
-              {i < items.length - 1 && <div className="absolute top-6 left-full w-6 h-px bg-gradient-to-r from-primary/50 to-transparent" />}
-              <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center text-white font-bold">{String(i + 1).padStart(2, "0")}</div>
-                  <span className="text-primary font-mono text-sm">{item.year}</span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    );
-  }
+export default function Timeline() {
   return (
     <div className="relative">
-      <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-border to-transparent" />
-      <div className="space-y-12">
-        {items.map((item, i) => (
-          <motion.div key={i} initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className={`relative flex items-center ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
-            <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-primary rounded-full ring-4 ring-background z-10" />
-            <div className={`ml-20 md:ml-0 md:w-1/2 ${i % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
-              <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors">
-                <div className="text-primary font-mono text-sm mb-2">{item.year}</div>
-                <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
-              </div>
+      {/* Vertical line */}
+      <div className="absolute left-[5.5rem] top-0 bottom-0 w-px bg-border" aria-hidden="true" />
+      <div className="space-y-0">
+        {MILESTONES.map((m, i) => (
+          <motion.div
+            key={m.year}
+            initial={{ opacity: 0, x: -12 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="relative flex gap-8 pb-10 last:pb-0"
+          >
+            {/* Year */}
+            <div className="w-20 flex-shrink-0 pt-0.5 text-right">
+              <span className="text-xs font-mono font-semibold text-gray-400 tracking-wider">{m.year}</span>
+            </div>
+
+            {/* Node */}
+            <div className="absolute left-[5.5rem] top-1.5 -translate-x-1/2 z-10">
+              <div className="w-2 h-2 rounded-full bg-white border-2 border-secondary" />
+            </div>
+
+            {/* Content */}
+            <div className="flex-1">
+              <p className="text-[9px] font-mono font-semibold text-secondary tracking-[0.18em] uppercase mb-1">
+                {m.tag}
+              </p>
+              <h4 className="text-sm font-semibold text-heading mb-1">{m.title}</h4>
+              <p className="text-sm text-gray-500 leading-relaxed">{m.description}</p>
             </div>
           </motion.div>
         ))}
