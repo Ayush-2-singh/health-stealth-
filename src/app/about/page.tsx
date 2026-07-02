@@ -29,16 +29,16 @@ export default function About() {
             <GlassCard>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-xl flex items-center justify-center"><HiShieldCheck className="w-6 h-6 text-primary" /></div>
-                <h3 className="text-2xl font-bold text-white">Our Mission</h3>
+                <h3 className="text-2xl font-bold text-heading">Our Mission</h3>
               </div>
-              <p className="text-gray-400 leading-relaxed">To engineer undetectable defense solutions that protect our partners' most critical assets. Through relentless innovation in multi-spectral signature management, we ensure operational superiority in contested environments worldwide.</p>
+              <p className="text-gray-600 leading-relaxed">To engineer undetectable defense solutions that protect our partners' most critical assets. Through relentless innovation in multi-spectral signature management, we ensure operational superiority in contested environments worldwide.</p>
             </GlassCard>
             <GlassCard delay={0.1}>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-secondary/10 border border-secondary/20 rounded-xl flex items-center justify-center"><HiEye className="w-6 h-6 text-secondary" /></div>
-                <h3 className="text-2xl font-bold text-white">Our Vision</h3>
+                <h3 className="text-2xl font-bold text-heading">Our Vision</h3>
               </div>
-              <p className="text-gray-400 leading-relaxed">To be the global leader in signature management technology, setting the standard for stealth solutions that keep defense platforms invisible to current and emerging detection systems across all spectral bands.</p>
+              <p className="text-gray-600 leading-relaxed">To be the global leader in signature management technology, setting the standard for stealth solutions that keep defense platforms invisible to current and emerging detection systems across all spectral bands.</p>
             </GlassCard>
           </div>
         </div>
@@ -48,10 +48,10 @@ export default function About() {
           <SectionTitle eyebrow="Core Values" title="What Drives Us" description="Our values guide every decision, from research priorities to customer partnerships." />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }} whileHover={{ y: -6 }} className="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 transition-all">
+              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }} whileHover={{ y: -6 }} className="bg-white border border-border rounded-2xl p-6 hover:border-primary/30 transition-all">
                 <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 rounded-xl flex items-center justify-center mb-4"><value.icon className="w-6 h-6 text-primary" /></div>
-                <h3 className="text-lg font-bold text-white mb-2">{value.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{value.desc}</p>
+                <h3 className="text-lg font-bold text-heading mb-2">{value.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{value.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -68,11 +68,11 @@ export default function About() {
           <SectionTitle eyebrow="Leadership" title="Guided by Experts" description="Our leadership team brings decades of combined experience in defense technology, research, and operations." />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {leaders.map((leader, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-card border border-border rounded-2xl p-6 text-center hover:border-primary/30 transition-colors">
+              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-white border border-border rounded-2xl p-6 text-center hover:border-primary/30 transition-colors">
                 <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-primary/20 to-secondary/10 rounded-full flex items-center justify-center"><HiUserGroup className="w-10 h-10 text-primary" /></div>
-                <h3 className="text-lg font-bold text-white mb-1">{leader.name}</h3>
+                <h3 className="text-lg font-bold text-heading mb-1">{leader.name}</h3>
                 <div className="text-xs text-primary uppercase tracking-wider mb-3">{leader.role}</div>
-                <p className="text-sm text-gray-400">{leader.bio}</p>
+                <p className="text-sm text-gray-600">{leader.bio}</p>
               </motion.div>
             ))}
           </div>
@@ -89,8 +89,8 @@ export default function About() {
             ].map((item, i) => (
               <GlassCard key={i} delay={i * 0.1}>
                 <item.icon className="w-8 h-8 text-primary mb-4" />
-                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-xl font-bold text-heading mb-3">{item.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
               </GlassCard>
             ))}
           </div>
