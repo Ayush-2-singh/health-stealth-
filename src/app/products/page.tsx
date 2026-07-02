@@ -17,7 +17,7 @@ export default function Products() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap justify-center gap-2 mb-12">
             {categories.map((cat) => (
-              <button key={cat} onClick={() => setActiveCategory(cat)} className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all ${activeCategory === cat ? "bg-primary text-white shadow-glow" : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-border"}`}>
+              <button key={cat} onClick={() => setActiveCategory(cat)} className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all ${activeCategory === cat ? "bg-primary text-heading shadow-glow" : "bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-heading border border-border"}`}>
                 {cat}
               </button>
             ))}
@@ -38,9 +38,9 @@ export default function Products() {
               { title: "Platform Integration", desc: "Seamless integration with existing platforms without compromising performance." },
               { title: "Lifecycle Support", desc: "Comprehensive support from deployment through end-of-life maintenance." },
             ].map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-card border border-border rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-white border border-border rounded-2xl p-6">
+                <h3 className="text-xl font-bold text-heading mb-3">{item.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
