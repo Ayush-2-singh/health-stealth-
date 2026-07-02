@@ -1,4 +1,5 @@
 "use client";
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { Technology } from "@/types";
 import { IconType } from "react-icons";
@@ -12,7 +13,6 @@ const iconMap: Record<string, IconType> = {
   uv: HiBolt, visible: HiEye, swir: HiCpuChip, mwir: HiCube, lwir: HiGlobeAlt,
 };
 
-// SVG corner bracket — explicit paths, no template literals
 function CornerBracket({ pos }: { pos: "tl" | "tr" | "bl" | "br" }) {
   const pathData: Record<string, string> = {
     tl: "M 10 1 L 1 1 L 1 10",
@@ -35,7 +35,7 @@ function CornerBracket({ pos }: { pos: "tl" | "tr" | "bl" | "br" }) {
 
 interface TechnologyCardProps { tech: Technology; index: number; }
 
-export default function TechnologyCard({ tech, index }: TechnologyCardProps) {
+const TechnologyCard = memo(function TechnologyCard({ tech, index }: TechnologyCardProps) {
   const Icon = iconMap[tech.icon] ?? HiSignal;
   const refNum = String(index + 1).padStart(3, "0");
   return (
@@ -46,13 +46,10 @@ export default function TechnologyCard({ tech, index }: TechnologyCardProps) {
       transition={{ duration: 0.5, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
       className="group relative bg-white border border-border rounded-[var(--radius-card)] p-6 shadow-soft hover:shadow-card hover:border-primary/25 transition-all duration-200 overflow-hidden"
     >
-      {/* Blueprint corner brackets */}
       <CornerBracket pos="tl" />
       <CornerBracket pos="tr" />
       <CornerBracket pos="bl" />
       <CornerBracket pos="br" />
-
-      {/* Blueprint grid on hover */}
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -61,13 +58,9 @@ export default function TechnologyCard({ tech, index }: TechnologyCardProps) {
           backgroundSize: "16px 16px",
         }}
       />
-
-      {/* Spec reference */}
       <div className="absolute top-4 right-8 text-[8px] font-mono text-primary/20 tracking-[0.12em] select-none">
         {"REF-" + refNum}
       </div>
-
-      {/* Icon with dimension ticks */}
       <div className="mb-5 mt-1">
         <div className="relative w-11 h-11 flex items-center justify-center rounded-xl border border-primary/12 bg-primary/5 group-hover:bg-primary/8 transition-colors duration-200">
           <Icon className="h-5 w-5 text-primary" />
@@ -75,7 +68,6 @@ export default function TechnologyCard({ tech, index }: TechnologyCardProps) {
           <span className="absolute -right-2 top-1/2 -translate-y-1/2 h-px w-1.5 bg-primary/15" />
         </div>
       </div>
-
       <h3 className="text-sm font-semibold text-heading mb-1.5 group-hover:text-primary transition-colors duration-150">
         {tech.name}
       </h3>
@@ -91,4 +83,6 @@ export default function TechnologyCard({ tech, index }: TechnologyCardProps) {
       )}
     </motion.div>
   );
-}
+});
+
+export default TechnologyCard;
