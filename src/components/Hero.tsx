@@ -15,7 +15,7 @@
     return (
       <section className={`relative flex items-center justify-center overflow-hidden bg-white ${compact ? "min-h-[55vh] pt-20" : "min-h-screen"}`}>
         <RadarBackground />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/70 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/60 pointer-events-none" />
         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white to-transparent pointer-events-none" />
 
         <div className="relative z-10 w-full max-w-5xl mx-auto px-6 lg:px-10 text-center pt-28 pb-20 lg:pt-32 lg:pb-24">
