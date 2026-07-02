@@ -17,7 +17,7 @@ export default function Button({ href, onClick, variant = "primary", size = "md"
   const variants = {
     primary: "bg-primary hover:bg-primary-light text-white shadow-xs hover:shadow-navy active:scale-[0.98]",
     secondary: "bg-secondary hover:bg-secondary-dark text-white shadow-xs hover:shadow-blue active:scale-[0.98]",
-    ghost: "bg-white hover:bg-gray-50 text-heading border-2 border-border hover:border-gray-400 active:scale-[0.98]",
+    ghost: "bg-white hover:bg-gray-50 text-heading border-2 border-gray-400 hover:border-gray-600 active:scale-[0.98]",
     outline: "border-2 border-secondary text-secondary hover:bg-secondary hover:text-white active:scale-[0.98]",
   };
   const sizes = {
