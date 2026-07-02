@@ -1,0 +1,27 @@
+/* Text color utilities with proper contrast for WCAG AA */
+@layer utilities {
+  /* Navigation items - improved from gray-600 to properly contrasted color */
+  .nav-link {
+    @apply text-gray-700 hover:text-heading transition-colors duration-150;
+  }
+
+  /* Muted text - WCAG AA compliant */
+  .text-muted-wcag {
+    @apply text-gray-600;
+  }
+
+  /* Secondary text - body content */
+  .text-secondary-content {
+    @apply text-gray-700;
+  }
+
+  /* High contrast heading for hero */
+  .hero-title {
+    @apply text-heading font-bold tracking-tight;
+  }
+
+  /* Hero subtitle with proper contrast */
+  .hero-subtitle {
+    @apply text-gray-700;
+  }
+}
