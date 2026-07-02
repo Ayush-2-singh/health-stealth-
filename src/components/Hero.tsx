@@ -13,70 +13,52 @@
 
   export default function Hero({ title, subtitle, primaryCTA, secondaryCTA, compact = false }: HeroProps) {
     return (
-      <section className={`relative min-h-screen flex items-center justify-center overflow-hidden bg-white ${compact ? "min-h-[60vh]" : ""}`}>
+      <section className={`relative flex items-center justify-center overflow-hidden bg-white ${compact ? "min-h-[55vh] pt-20" : "min-h-screen"}`}>
         <RadarBackground />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/50 pointer-events-none" />
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/60 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white to-transparent pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 lg:px-10 text-center pt-24 pb-16">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-gray-100 border border-border rounded-full"
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 mb-10 border border-border rounded-full bg-white"
           >
-            <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
-            <span className="text-xs text-gray-600 tracking-wider uppercase">Defense Technology Leader</span>
+            <span className="w-1.5 h-1.5 bg-secondary rounded-full" />
+            <span className="text-xs text-gray-500 tracking-[0.18em] uppercase font-medium">Defense Technology Leader</span>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-display-xl font-bold tracking-tight mb-6 text-heading"
+            transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className="text-display-xl font-bold tracking-tight text-heading mb-6"
           >
             {title}
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed"
+            transition={{ duration: 0.7, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+            className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed font-normal"
           >
             {subtitle}
           </motion.p>
 
           {(primaryCTA || secondaryCTA) && (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              transition={{ duration: 0.6, delay: 0.24 }}
+              className="flex flex-col sm:flex-row gap-3 justify-center items-center"
             >
               {primaryCTA && <Button href={primaryCTA.href} variant="primary" size="lg">{primaryCTA.label}</Button>}
               {secondaryCTA && <Button href={secondaryCTA.href} variant="ghost" size="lg">{secondaryCTA.label}</Button>}
             </motion.div>
           )}
         </div>
-
-        {!compact && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
-          >
-            <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="w-1 h-2 bg-primary rounded-full mt-2"
-              />
-            </div>
-          </motion.div>
-        )}
       </section>
     );
   }
