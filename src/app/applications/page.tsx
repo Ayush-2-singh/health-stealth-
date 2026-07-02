@@ -18,7 +18,7 @@ export default function Applications() {
             {applications.map((app, i) => {
               const Icon = iconMap[app.icon] || HiShieldCheck;
               return (
-                <motion.div key={app.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.7 }} className="group relative bg-card border border-border rounded-3xl p-8 md:p-12 hover:border-primary/30 transition-all overflow-hidden">
+                <motion.div key={app.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.7 }} className="group relative bg-white border border-border rounded-3xl p-8 md:p-12 hover:border-primary/30 transition-all overflow-hidden">
                   <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors" />
                   <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <div className="lg:col-span-1">
@@ -41,11 +41,11 @@ export default function Applications() {
                         <span className="w-8 h-px bg-primary" />
                         <span className="text-xs text-primary tracking-[0.2em] uppercase font-medium">Domain {String(i + 1).padStart(2, "0")}</span>
                       </div>
-                      <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-primary transition-colors">{app.title}</h3>
-                      <p className="text-gray-400 leading-relaxed mb-6 text-lg">{app.description}</p>
+                      <h3 className="text-3xl md:text-4xl font-bold text-heading mb-4 group-hover:text-primary transition-colors">{app.title}</h3>
+                      <p className="text-gray-600 leading-relaxed mb-6 text-lg">{app.description}</p>
                       <div className="grid grid-cols-2 gap-3">
                         {app.features.map((feature) => (
-                          <div key={feature} className="flex items-center gap-2 text-sm text-gray-300 bg-white/5 border border-border rounded-lg px-3 py-2">
+                          <div key={feature} className="flex items-center gap-2 text-sm text-gray-700 bg-gray-50 border border-border rounded-lg px-3 py-2">
                             <span className="w-1.5 h-1.5 bg-primary rounded-full" />{feature}
                           </div>
                         ))}
